@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "sourceMap": true,
+    "module": "commonjs",
+    "strict": true,
+    "jsx": "react",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "declaration": true,
+    "lib": ["es2017", "dom"]
+  },
+  "exclude": ["**/__tests__"]
+}
