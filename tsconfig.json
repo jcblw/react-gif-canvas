@@ -9,6 +9,5 @@
     "moduleResolution": "node",
     "declaration": true,
     "lib": ["es2017", "dom"]
-  },
-  "exclude": ["**/__tests__"]
+  }
 }

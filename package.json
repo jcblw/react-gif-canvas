@@ -1,5 +1,5 @@
 {
-  "name": "@headspace/react-gif",
+  "name": "react-gif-canvas",
   "version": "1.0.0",
   "description": "A gif player that renders a single canvas element",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HeadspaceMeditation/react-gif.git"
+    "url": "git+https://github.com/jcblw/react-gif-canvas.git"
   },
   "keywords": [
     "gif",
@@ -25,9 +25,9 @@
   "author": "Jacob Lowe",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HeadspaceMeditation/react-gif/issues"
+    "url": "https://github.com/jcblw/react-gif-canvas/issues"
   },
-  "homepage": "https://github.com/HeadspaceMeditation/react-gif#readme",
+  "homepage": "https://github.com/jcblw/react-gif-canvas#readme",
   "peerDependencies": {
     "react": "^16.5.2"
   },
@@ -35,15 +35,21 @@
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^22.1.4",
     "@types/node": "^9.4.6",
+    "@types/node-fetch": "^2.1.2",
     "@types/react": "^16.3.17",
     "@types/react-dom": "^16.0.4",
     "@types/react-test-renderer": "^16.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "husky": "^1.0.0-rc.9",
     "jest": "^22.4.2",
+    "jest-fetch-mock": "^1.6.6",
+    "lint-staged": "^7.3.0",
+    "node-fetch": "^2.2.0",
     "prettier": "^1.11.0",
     "react": "^16.4.1",
+    "react-dom": "^16.5.2",
     "react-test-renderer": "^16.2.0",
     "ts-jest": "^22.4.0",
     "tslint": "^5.9.1",
@@ -54,16 +60,21 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": [
-        "prettier --write --single-quote  --trailing-comma all",
-        "git add"
-      ]
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,json,css,md,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "files": [
     "dist/"
   ],
   "jest": {
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost:8080",
     "transform": {
       "\\.(jsx?|tsx?)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
@@ -84,7 +95,7 @@
       "\\.(svg)$": "<rootDir>/empty-module.js"
     },
     "setupFiles": [
-      "<rootDir>/src/setupTests.ts"
+      "<rootDir>/src/setup-tests.ts"
     ]
   }
 }
