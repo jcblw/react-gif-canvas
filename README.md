@@ -1,4 +1,4 @@
-# react gif
+# react gif canvas
 
 This is a gif player that emulates a media player. This component fetch's a GIF, with fetch, and then parses the data of the gif and renders it to a canvas element.
 
